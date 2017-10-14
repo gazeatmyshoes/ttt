@@ -35,5 +35,8 @@ def start(message):
 
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
+    app = bottle.Bottle()
+    srv = SSLWSGIRefServer(host="telebot-help.azurewebsites.net", port=80)
+    bottle.run(server=srv)
     bot.polling(none_stop=True)
